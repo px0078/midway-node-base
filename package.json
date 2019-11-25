@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "egg-mongoose": "^3.2.0",
+    "egg-passport": "^2.1.0",
     "midway": "^1.0.0"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@ module.exports = (pandora) => {
 	
     // 定义进程环境变量，创建出来的进程中可以通过 process.env 获得
     .env({
-      ENV_VAR1: 'VALUE_OF_ENV_VAR1'
+      NODE_ENV: 'production'
     })
 	
 	// 这个进程的入口文件地址

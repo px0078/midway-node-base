@@ -7,6 +7,18 @@ export default (appInfo: any) => {
   // add your config here
   config.middleware = [
   ];
+  
+  // mongoose
+  config.mongoose = {
+    clients: {
+      back: {
+        url: 'mongodb://127.0.0.1:27017/py_edu',
+        options: {
+          useUnifiedTopology: true
+        },
+      },
+    },
+  };
 
   return config;
 };
