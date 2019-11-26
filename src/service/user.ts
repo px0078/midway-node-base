@@ -8,7 +8,7 @@ export class UserService implements IUserService {
   ctx: Context;
 
   async getUser(options: IUserOptions): Promise<IUserResult> {
-    // TODO: 拿不到 model
+    // TODO: 拿到 model, 但是查不到
     console.log(';; ', this.ctx.model.AuthUser)
     return {
       id: options.id,
