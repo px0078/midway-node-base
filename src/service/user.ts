@@ -8,8 +8,10 @@ export class UserService implements IUserService {
   ctx: Context;
 
   async getUser(options: IUserOptions): Promise<IUserResult> {
-    // TODO: 拿到 model, 但是查不到
-    console.log(';; ', this.ctx.model.AuthUser)
+    console.log(';; ', await this.ctx.model.AuthUser.create({
+      account: '12345',
+      name: 'px'
+    }))
     return {
       id: options.id,
       username: 'mockedName',

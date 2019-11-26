@@ -2,6 +2,7 @@
 export = (app: any) => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
+  const conn = app.mongooseDB.get('back');
 
   const UserSchema = new Schema({
     name: { type: String },
@@ -19,5 +20,6 @@ export = (app: any) => {
     timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
   });
 
-  return mongoose.model('AuthUser', UserSchema);
+  return conn.model('AuthUser', UserSchema);
+
 };
