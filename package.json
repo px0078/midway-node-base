@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "egg-graphql": "^2.7.0",
     "egg-mongoose": "^3.2.0",
     "egg-passport": "^2.1.0",
     "midway": "^1.0.0"
@@ -23,5 +24,10 @@
     "cov": "midway-bin cov --ts",
     "ci": "midway-bin cov --ts",
     "build": "midway-bin build -c"
+  },
+  "midway-bin-build": {
+    "include": [
+      "app/graphql"
+    ]
   }
 }

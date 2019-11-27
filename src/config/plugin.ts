@@ -11,4 +11,9 @@ export default {
     package: 'egg-mongoose',
   },
 
+  graphql: {
+    enable: true,
+    package: 'egg-graphql',
+  }
+
 };
