@@ -21,3 +21,8 @@ export interface IUserResult {
 export interface IUserService {
   getUser(options: IUserOptions): Promise<IUserResult>;
 }
+
+export interface IUserInfo {
+  id: number;
+  name: string;
+}

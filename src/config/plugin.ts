@@ -14,6 +14,11 @@ export default {
   graphql: {
     enable: true,
     package: 'egg-graphql',
+  },
+
+  redis: {
+    enable: true,
+    package: 'egg-redis',
   }
 
 };
