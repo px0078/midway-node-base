@@ -5,11 +5,14 @@
   "dependencies": {
     "egg-graphql": "^2.7.0",
     "egg-mongoose": "^3.2.0",
-    "egg-passport": "^2.1.0",
     "egg-redis": "^2.4.0",
-    "midway": "^1.0.0"
+    "egg-session-redis": "^2.1.0",
+    "midway": "^1.0.0",
+    "ms": "^2.1.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "@types/underscore": "^1.9.4",
     "cross-env": "^6.0.0",
     "midway-bin": "1",
     "midway-demo-lib": "1",
