@@ -11,7 +11,7 @@ export = (app: Application) => {
       describe: { type: String },
       users: { type: Array },
       modules: { type: Array },
-      disable: { type: Boolean, default: false },
+      disable: { type: Number, default: 0 },
       create_date: { type: Date, default: Date.now },
       update_date: { type: Date, default: Date.now },
     },

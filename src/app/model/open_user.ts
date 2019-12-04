@@ -8,7 +8,7 @@ export = (app: Application) => {
   const UserSchema = new Schema({
     nickName: { type: String },
     avatarUrl: { type: String },
-    gender: { type: Number },
+    gender: { type: Number, default: 0 },
     province: { type: String },
     city: { type: String },
     country: { type: String },
