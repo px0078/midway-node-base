@@ -1,5 +1,6 @@
+import { Application } from 'midway';
 
-export = (app: any) => {
+export = (app: Application) => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   const conn = app.mongooseDB.get('back');
