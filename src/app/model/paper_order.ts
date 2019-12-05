@@ -14,10 +14,10 @@ export = (app: Application) => {
     type: { type: Number, default: 0 },
     amount: { type: Number },
     discount: { type: Number, default: 0 },
-    create_date: { type: Date, default: Date.now },
-    update_date: { type: Date, default: Date.now },
+    createDate: { type: Date, default: Date.now },
+    updateDate: { type: Date, default: Date.now },
   }, {
-    timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
+    timestamps: { createdAt: 'createDate', updatedAt: 'updateDate' },
   });
 
   return conn.model('PaperOrder', OrderSchema);

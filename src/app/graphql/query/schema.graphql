@@ -1,5 +1,5 @@
 type Query {
-  # Token表
-  getTokenById(input: GetTokenByIdReq): GetTokenByIdRes
-  getTokenList(input: GetTokenListReq): GetTokenListRes
+  # 论文表单
+  getPaperFormList(input: GetPaperFormListReq): GetPaperFormListRes
+  
 }

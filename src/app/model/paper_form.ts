@@ -13,10 +13,10 @@ export = (app: Application) => {
     taskSource: { type: String },
     orderId: { type: String, unique: true },
     shareId: { type: String },
-    create_date: { type: Date, default: Date.now },
-    update_date: { type: Date, default: Date.now },
+    createDate: { type: Date, default: Date.now },
+    updateDate: { type: Date, default: Date.now },
   }, {
-    timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
+    timestamps: { createdAt: 'createDate', updatedAt: 'updateDate' },
   });
 
   return conn.model('PaperForm', FormSchema);

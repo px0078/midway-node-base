@@ -12,12 +12,12 @@ export = (app: Application) => {
       users: { type: Array },
       modules: { type: Array },
       disable: { type: Number, default: 0 },
-      create_date: { type: Date, default: Date.now },
-      update_date: { type: Date, default: Date.now },
+      createDate: { type: Date, default: Date.now },
+      updateDate: { type: Date, default: Date.now },
     },
     {
       usePushEach: true,
-      timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
+      timestamps: { createdAt: 'createDate', updatedAt: 'updateDate' },
     }
   );
 

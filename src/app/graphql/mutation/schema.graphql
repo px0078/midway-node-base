@@ -2,9 +2,9 @@ type MutationCommonRes {
   success: Boolean
   message: String
 }
+
 type Mutation {
-  # Token表
-  createToken(input: CreateTokenReq): MutationCommonRes
-  updateToken(input: UpdateTokenReq): MutationCommonRes
-  deleteToken(input: DeleteTokenReq): MutationCommonRes
+  # 论文表单
+  createPaperForm(input: CreatePaperFormReq): MutationCommonRes
+  
 }

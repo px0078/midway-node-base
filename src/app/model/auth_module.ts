@@ -12,11 +12,11 @@ export = (app: Application) => {
     sort: { type: Number, default: 0 },
     // 假设parent_id没有值的时候，表示它是顶级module
     parent_id: { type: String },
-    create_date: { type: Date, default: Date.now },
-    update_date: { type: Date, default: Date.now },
+    createDate: { type: Date, default: Date.now },
+    updateDate: { type: Date, default: Date.now },
   }, {
     usePushEach: true,
-    timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
+    timestamps: { createdAt: 'createDate', updatedAt: 'updateDate' },
   });
 
   return conn.model('AuthModule', ModuleSchema);

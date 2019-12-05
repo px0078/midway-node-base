@@ -10,10 +10,10 @@ export = (app: Application) => {
     parentId: { type: String },
     status: { type: Number, default: 0 },
     amount: { type: Number },
-    create_date: { type: Date, default: Date.now },
-    update_date: { type: Date, default: Date.now },
+    createDate: { type: Date, default: Date.now },
+    updateDate: { type: Date, default: Date.now },
   }, {
-    timestamps: { createdAt: 'create_date', updatedAt: 'update_date' },
+    timestamps: { createdAt: 'createDate', updatedAt: 'updateDate' },
   });
 
   return conn.model('StudySubject', SubjectSchema);
