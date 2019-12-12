@@ -1,5 +1,0 @@
-type Query {
-  # 论文表单
-  getPaperFormList(input: GetPaperFormListReq): GetPaperFormListRes
-  
-}

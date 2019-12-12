@@ -6,11 +6,6 @@ export default {
     package: 'egg-mongoose',
   },
 
-  graphql: {
-    enable: true,
-    package: 'egg-graphql',
-  },
-
   redis: {
     enable: true,
     package: 'egg-redis',
