@@ -3,7 +3,7 @@ export default (appInfo: any) => {
   const config: any = {};
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1574519964458_8021';
+  config.keys = appInfo.name + '_1574519964458_80210';
 
   config.security = {
     csrf: false,

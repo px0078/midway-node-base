@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "dataloader": "^2.0.0",
     "dayjs": "^1.8.17",
     "egg-mongoose": "^3.2.0",
     "egg-redis": "^2.4.0",
@@ -29,10 +28,5 @@
     "cov": "midway-bin cov --ts",
     "ci": "midway-bin cov --ts",
     "build": "midway-bin build -c"
-  },
-  "midway-bin-build": {
-    "include": [
-      "app/graphql"
-    ]
   }
 }
