@@ -43,6 +43,7 @@ export class authGroupController extends baseController {
   @post('/')
   async create() {
     const query = this.ctx.request.body;
+    console.log('query', query)
     const createRule = {
       name: {
         type: 'string',
@@ -81,14 +82,18 @@ export class authGroupController extends baseController {
 
       return;
     }
-
-    const result = await this.ctx.service.auth.group.create(pick(query, ...Object.keys(createRule)));
+    const params = {
+      name: '',
+      ...pick(
+        query, 
+        ...Object.keys(createRule)
+      )
+    }
+    const result = await this.service.create(params);
 
     if (result) {
       this.success(
-        {
-          id: result.id,
-        },
+        result,
         201,
       );
     }
@@ -96,19 +101,19 @@ export class authGroupController extends baseController {
 
   @del('/:id')
   async destroy() {
-    const query = this.ctx.params;
-
-    await this.ctx.service.auth.group.destroy(query.id);
+    const { id } = this.ctx.params;
+    if (!id) return this.failure({})
+    await this.service.destroy(id);
 
     this.success();
   }
 
   
-  @put('/:id')
-  async edit() {
+  @get('/:id')
+  async detail() {
     const query = this.ctx.params;
 
-    const result = await this.ctx.service.auth.group.edit(query.id);
+    const result = await this.service.detail(query.id);
 
     if (!result) {
       this.failure({
@@ -119,7 +124,7 @@ export class authGroupController extends baseController {
       return false;
     }
 
-    return this.success(pick(result, ...['id', 'name', 'describe']));
+    return this.success(result);
   }
 
   
@@ -147,9 +152,12 @@ export class authGroupController extends baseController {
       return false;
     }
 
-    const result = await this.ctx.service.auth.group.update(
+    const result = await this.service.update(
       id,
-      pick(query, ...['name', 'describe', 'modules']),
+      {
+        name: '',
+        ...pick(query, ...['name', 'describe', 'modules']),
+      }
     );
 
     if (!result) {

@@ -1,6 +1,7 @@
 import { provide, inject } from 'midway';
-import { IListResult, IListRequest, IService } from '@/interface/authGroupService';
+import { IListResult, IListRequest, IService, ICreateRequest } from '@/interface/authGroupService';
 import IContext from '@/interface/context'
+import { ISuccessRes } from '@/interface/response'
 
 @provide('AuthGroupService')
 export class AuthGroupService implements IService {
@@ -21,11 +22,10 @@ export class AuthGroupService implements IService {
     })
   }
 
-  // async create(data) {
-  //   const result = await this.ctx.model.AuthGroup.create(data);
-
-  //   return result;
-  // }
+  async create(data: ICreateRequest): Promise<ISuccessRes> {
+    const result = await this.ctx.model.AuthGroup.create(data);
+    return result;
+  }
 
   // async removeUser(id) {
   //   const result = await this.ctx.model.AuthGroup.find({
@@ -41,39 +41,38 @@ export class AuthGroupService implements IService {
   //   });
   // }
 
-  // async destroy(id) {
-  //   try {
-  //     return await this.ctx.model.AuthGroup.remove(
-  //       { _id: id },
-       
-  //     ).exec();
-  //   } catch (err) {
-  //     this.ctx.logger.error(err.message);
-  //     return '';
-  //   }
-  // }
+  async destroy(id: string) {
+    try {
+      return await this.ctx.model.AuthGroup.remove(
+        { _id: id },
+      ).exec();
+    } catch (err) {
+      this.ctx.logger.error(err.message);
+      return '';
+    }
+  }
 
-  // async edit(id) {
-  //   const result = await this.ctx.model.AuthGroup.findOne({
-  //     _id: id,
-  //   });
+  async detail(id: string) {
+    const result = await this.ctx.model.AuthGroup.findOne({
+      _id: id,
+    });
 
-  //   return result;
-  // }
+    return result;
+  }
 
-  // async update(id, data) {
-  //   const newData = Object.assign(data, { _id: id });
+  async update(id: string, data: ICreateRequest) {
+    const newData = Object.assign(data, { _id: id });
 
-  //   try {
-  //     return await this.ctx.model.AuthGroup.findOneAndUpdate({ _id: id }, newData, {
-  //       new: true,
-  //       runValidators: true,
-  //     }).exec();
-  //   } catch (err) {
-  //     this.ctx.logger.error(err.message);
-  //     return '';
-  //   }
-  // }
+    try {
+      return await this.ctx.model.AuthGroup.findOneAndUpdate({ _id: id }, newData, {
+        new: true,
+        runValidators: true,
+      }).exec();
+    } catch (err) {
+      this.ctx.logger.error(err.message);
+      return '';
+    }
+  }
   
 
 }

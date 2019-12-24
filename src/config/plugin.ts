@@ -1,6 +1,12 @@
 export default {
   static: false, // default is true
 
+  // 表单验证
+  validate: {
+    enable: true,
+    package: 'egg-validate',
+  },
+
   mongoose: {
     enable: true,
     package: 'egg-mongoose',

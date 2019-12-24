@@ -4,3 +4,9 @@ export interface IPagingRes {
   pageNumber: number,
   pageSize: number,
 }
+
+export interface ISuccessRes {
+  data?: any,
+  code: number,
+  msg: string,
+}
