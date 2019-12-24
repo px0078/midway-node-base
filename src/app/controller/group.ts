@@ -43,7 +43,6 @@ export class authGroupController extends baseController {
   @post('/')
   async create() {
     const query = this.ctx.request.body;
-    console.log('query', query)
     const createRule = {
       name: {
         type: 'string',
@@ -173,7 +172,9 @@ export class authGroupController extends baseController {
   }
 
   
-  
+  /* 
+  * 根据 groupId 获取 group 下的用户列表（分页）
+  */
   @get('/user/:id')
   async getUser() {
     const { ctx } = this;
@@ -213,7 +214,9 @@ export class authGroupController extends baseController {
     });
   }
 
- 
+  /*
+  * 根据 groupId 增加/删除，替换 group 内的用户
+  */
   @put('/user/:id')
   async setUser() {
     const { ctx } = this;
@@ -253,16 +256,16 @@ export class authGroupController extends baseController {
     return this.success();
   }
 
- 
+  // 根据 groupId 获取 角色的权限（modules）
   @get('/module/:id')
   async getModule() {
     const { ctx } = this;
-    const query = ctx.params;
+    const { id } = ctx.params;
 
     const list =
       (
         await ctx.model.AuthGroup.findOne({
-          _id: query.id,
+          _id: id,
         })
       ).modules || [];
 
@@ -271,7 +274,7 @@ export class authGroupController extends baseController {
     });
   }
 
-
+  // 根据 groupId 修改 角色的权限（modules）
   @put('/module/:id')
   async setModule() {
     const { ctx } = this;

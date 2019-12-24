@@ -18,11 +18,11 @@ export interface IAuthUser extends IDate {
 }
 
 export interface IAuthModule extends IDate {
-  _id: string,
+  _id?: string,
   name: string,
-  uri: string,
-  sort: number,
-  parent_id: string,
+  uri?: string,
+  sort?: number,
+  parent_id?: string,
   describe?: string,
 }
 
