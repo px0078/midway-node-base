@@ -10,3 +10,8 @@ export interface ISuccessRes {
   code: number,
   msg: string,
 }
+
+export interface IFailureRes {
+  code: number,
+  msg: string,
+}
