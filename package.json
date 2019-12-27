@@ -17,7 +17,9 @@
     "cross-env": "^6.0.0",
     "midway-bin": "1",
     "midway-demo-lib": "1",
-    "pandora": "^2.1.2"
+    "pandora": "^2.1.2",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   },
   "engines": {
     "node": ">=10.16.0"
@@ -28,6 +30,7 @@
     "test": "midway-bin test --ts",
     "cov": "midway-bin cov --ts",
     "ci": "midway-bin cov --ts",
-    "build": "midway-bin build -c"
+    "build": "midway-bin build -c",
+    "lint": "tslint . --fix"
   }
 }
