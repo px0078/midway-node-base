@@ -12,7 +12,7 @@ export default {
         list: results,
         pageSize: Number(pageSize),
         pageNumber: Number(pageNumber),
-        total: total,
+        total,
       };
     },
   },

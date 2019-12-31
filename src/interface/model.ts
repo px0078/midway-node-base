@@ -5,12 +5,12 @@ interface IDate {
 }
 
 export interface IAuthUser extends IDate {
-  _id: string,
+  _id?: string,
   name: string,
   account: string,
   password: string,
   status: number,
-  gender: number,
+  gender?: number,
   remark?: string,
   mobile?: string,
   avatar?: string,

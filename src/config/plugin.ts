@@ -12,14 +12,19 @@ export default {
     package: 'egg-mongoose',
   },
 
-  redis: {
+  passport: {
     enable: true,
-    package: 'egg-redis',
-  },
-
-  sessionRedis: {
-    enable: true,
-    package: 'egg-session-redis',
+    package: 'egg-passport',
   }
+
+  // redis: {
+  //   enable: true,
+  //   package: 'egg-redis',
+  // },
+
+  // sessionRedis: {
+  //   enable: true,
+  //   package: 'egg-session-redis',
+  // }
 
 };

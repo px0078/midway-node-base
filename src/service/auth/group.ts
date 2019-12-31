@@ -8,7 +8,12 @@ export class AuthGroupService implements IService {
   
   @inject()
   ctx: IContext;
-
+  /**
+   * @param  {} {pageNumber
+   * @param  {} pageSize
+   * @param  {IListRequest} query}
+   * @returns Promise
+   */
   async list({ pageNumber, pageSize, query } : IListRequest): Promise<IListResult> {
     const results = await this.ctx.model.AuthGroup.find(query)
       .skip((pageNumber - 1) * pageSize)
@@ -21,7 +26,10 @@ export class AuthGroupService implements IService {
       pageNumber,
     })
   }
-
+  /**
+   * @param  {ICreateRequest} data
+   * @returns Promise
+   */
   async create(data: ICreateRequest): Promise<ISuccessRes> {
     const result = await this.ctx.model.AuthGroup.create(data);
     return result;
@@ -41,6 +49,9 @@ export class AuthGroupService implements IService {
   //   });
   // }
 
+  /**
+   * @param  {string} id
+   */
   async destroy(id: string) {
     try {
       return await this.ctx.model.AuthGroup.remove(
@@ -51,7 +62,10 @@ export class AuthGroupService implements IService {
       return '';
     }
   }
-
+  
+  /**
+   * @param  {string} id
+   */
   async detail(id: string) {
     const result = await this.ctx.model.AuthGroup.findOne({
       _id: id,
@@ -60,6 +74,10 @@ export class AuthGroupService implements IService {
     return result;
   }
 
+  /**
+   * @param  {string} id
+   * @param  {ICreateRequest} data
+   */
   async update(id: string, data: ICreateRequest) {
     const newData = Object.assign(data, { _id: id });
 

@@ -10,14 +10,25 @@ export class AuthModuleService implements IService {
   @inject()
   ctx: IContext;
 
+  /**
+   * @returns Promise
+   */
   async list(): Promise<IListResult> {
     return await this.ctx.model.AuthModule.find({})
   }
   
+  /**
+   * @param  {IAuthModule} data
+   * @returns Promise
+   */
   async create(data: IAuthModule): Promise<ISuccessRes> {
     return await this.ctx.model.AuthModule.create(data)
   }
-
+  
+  /**
+   * @param  {string} id
+   * @returns Promise
+   */
   async destroy(id: string): Promise<ISuccessRes> {
 
     const result = await this.ctx.model.AuthModule.deleteOne({
@@ -38,6 +49,10 @@ export class AuthModuleService implements IService {
     return result;
   }
 
+  /**
+   * @param  {string} id
+   * @returns Promise
+   */
   async detail(id: string): Promise<IAuthModule> {
     const result = await this.ctx.model.AuthModule.findOne({
       _id: id,
@@ -45,6 +60,11 @@ export class AuthModuleService implements IService {
     return result;
   }
 
+  /**
+   * @param  {string} id
+   * @param  {IAuthModule} data
+   * @returns Promise
+   */
   async update(id: string, data: IAuthModule): Promise<ISuccessRes | IFailureRes> {
     try {
       return await this.ctx.model.AuthModule.findByIdAndUpdate(id, {
