@@ -30,5 +30,13 @@ export default (appInfo: any) => {
     },
   }
 
+  // 七牛云
+  config.qiniu = {
+    accessKey: 'oqvxam1H4DSYEGuZ_XSh-ZiyEcO83E8OWq8qNgby',
+    secretKey: 'TFg-qmpPWQosJJEMRmGPujgHWHMnrmLFDlqx9Kbu',
+    bucket: 'px-temp',
+    domain: 'q3dfmw03h.bkt.clouddn.com',
+  }
+
   return config;
 };
