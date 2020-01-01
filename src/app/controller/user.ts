@@ -230,7 +230,7 @@ export class UserController extends baseController {
     const query = ctx.request.body;
 
     const createRule = {
-      account: {
+      remark: {
         type: 'string',
         required: false,
       },
