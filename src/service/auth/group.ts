@@ -35,19 +35,6 @@ export class AuthGroupService implements IService {
     return result;
   }
 
-  // async removeUser(id) {
-  //   const result = await this.ctx.model.AuthGroup.find({
-  //     users: { $in: [id] },
-  //   });
-  //   result.forEach(group => {
-  //     this.update(
-  //       group.id,
-  //       Object.assign(group, {
-  //         users: _.difference(group.users, [id]),
-  //       }),
-  //     );
-  //   });
-  // }
 
   /**
    * @param  {string} id
