@@ -1,22 +1,22 @@
 
-enum DISABLE {
+export enum DISABLE {
   false = 0,
   true,
 }
 
-enum USER_STATUS {
+export enum USER_STATUS {
   enable = 0,
   disable,
   annul
 }
 
-enum GENDER {
+export enum GENDER {
   unknown = 0,
   male,
   female
 }
 
-enum FROM {
+export enum FROM {
   none = 0,
   wechat,
   qq,
@@ -26,7 +26,7 @@ enum FROM {
   other
 }
 
-enum ORDER_STATUS {
+export enum ORDER_STATUS {
   no_pay = 0,
   no_emit,
   no_sign,
@@ -34,17 +34,17 @@ enum ORDER_STATUS {
   done
 }
 
-enum ORDER_TYPE {
+export enum ORDER_TYPE {
   paper = 0
 }
 
-enum SUBJECT_STATUS {
+export enum SUBJECT_STATUS {
   enable = 0,
   disable,
   annul
 }
 
-enum WALLET_STATUS {
+export enum WALLET_STATUS {
   enable = 0,
   disable,
   annul
