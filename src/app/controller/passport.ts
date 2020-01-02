@@ -95,7 +95,10 @@ export class PassportController extends baseController {
     return this.success(result);
   }
 
-  @put('/:id')
+  @put(
+    '/:id', 
+    // { routerName: 'admin.passport.update', middleware: ['authMiddleware']}
+  )
   async update() {
     const { ctx, service } = this;
     const { id } = ctx.params;
