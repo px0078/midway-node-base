@@ -31,6 +31,11 @@ export default (appInfo: any) => {
     },
   }
 
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
   // 七牛云
   config.qiniu = {
     accessKey: 'oqvxam1H4DSYEGuZ_XSh-ZiyEcO83E8OWq8qNgby',

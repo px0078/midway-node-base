@@ -15,7 +15,12 @@ export default {
   passport: {
     enable: true,
     package: 'egg-passport',
-  }
+  },
+
+  cors: {
+    enable: true,
+    package: 'egg-cors',
+  },
 
   // redis: {
   //   enable: true,

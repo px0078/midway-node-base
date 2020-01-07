@@ -223,17 +223,6 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5d268fbc0d51991c19fc2159",
-    __v: 0,
-    create_date: "2019-08-02T08:17:10.029Z",
-    describe: "",
-    name: "导入按钮",
-    parent_id: "5ae2baff06ebe130282a3972",
-    update_date: "2019-11-25T10:12:49.142Z",
-    uri: "auth.module.import"
-  },
-  {
-    sort: 0,
     _id: "5d26e76d1d09cb6996fc81ce",
     __v: 0,
     create_date: "2019-08-02T08:17:10.029Z",
