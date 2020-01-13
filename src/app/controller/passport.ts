@@ -1,7 +1,9 @@
-import { Context, controller, inject, provide, post, get, put } from 'midway';
+import { Context, controller, inject, provide, post, get, put, plugin, config } from 'midway';
 import baseController from "../core/baseController";
 import { IService } from '@/interface/authUserService';
 import { pick } from 'underscore';
+import { Jwt } from '@waiting/egg-jwt'
+
 const crypto = require('crypto'); // build-in
 
 @provide()
@@ -10,10 +12,17 @@ export class PassportController extends baseController {
 
   @inject()
   ctx: Context;
+
+  @plugin()
+  jwt: Jwt;
+
+  @config('jwt')
+  jwtConfig: any;
+
   
   @post('/login')
   async login() {
-    const { ctx } = this;
+    const { ctx, jwtConfig, jwt } = this;
     const { account, password } = ctx.request.body;
     const createRule = {
       account: {
@@ -55,11 +64,11 @@ export class PassportController extends baseController {
         name: userInfo.name,
         roles,
       };
-      ctx.login(info);
+      // jwt
+      const token = jwt.sign(info, jwtConfig.client.secret, { expiresIn: '12h' });
       this.success({
-        id: userInfo._id,
-        userName: userInfo.name,
-        roles,
+        ...info,
+        token,
       });
     } else {
       this.failure({
@@ -74,7 +83,10 @@ export class PassportController extends baseController {
   @post('/logout')
   async logout() {
     const { ctx } = this;
-    if (ctx.isAuthenticated()) ctx.logout();
+    const { user } = ctx.state
+    if (!user) {
+      return this.failure({})
+    }
     this.success();
   }
 

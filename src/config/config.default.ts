@@ -31,6 +31,15 @@ export default (appInfo: any) => {
   //   },
   // }
 
+  config.jwt = {
+    enable: true, // enable middleware
+    client: {
+      secret: 'py_edu-0078',
+    },
+    ignore: ['/admin/passport/login'],
+  }
+
+
   config.cors = {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'

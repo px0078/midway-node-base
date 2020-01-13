@@ -12,9 +12,14 @@ export default {
     package: 'egg-mongoose',
   },
 
-  passport: {
+  // passport: {
+  //   enable: true,
+  //   package: 'egg-passport',
+  // },
+
+  jwt: {
     enable: true,
-    package: 'egg-passport',
+    package: '@waiting/egg-jwt',
   },
 
   cors: {
