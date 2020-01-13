@@ -42,7 +42,7 @@ db.authusers.insert([
 db.authmodules.insert([
   {
     sort: 1,
-    _id: "5ae2a084dfa9080ec4bf4a6d",
+    _id: ObjectId("5ae2a084dfa9080ec4bf4a6d"),
     __v: 0,
     create_date: "2018-04-27T04:01:08.952Z",
     describe: null,
@@ -55,7 +55,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2b6e6772d6f2d78726aca",
+    _id: ObjectId("5ae2b6e6772d6f2d78726aca"),
     __v: 0,
     create_date: "2018-04-27T05:36:38.388Z",
     describe: null,
@@ -68,7 +68,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2b741772d6f2d78726acc",
+    _id: ObjectId("5ae2b741772d6f2d78726acc"),
     __v: 0,
     create_date: "2018-04-27T05:38:09.041Z",
     describe: null,
@@ -81,7 +81,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2b74d772d6f2d78726acd",
+    _id: ObjectId("5ae2b74d772d6f2d78726acd"),
     __v: 0,
     create_date: "2018-04-27T05:38:21.861Z",
     describe: null,
@@ -94,7 +94,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2b765772d6f2d78726acf",
+    _id: ObjectId("5ae2b765772d6f2d78726acf"),
     __v: 0,
     create_date: "2018-04-27T05:38:45.456Z",
     describe: null,
@@ -107,7 +107,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2b9dc06ebe130282a3968",
+    _id: ObjectId("5ae2b9dc06ebe130282a3968"),
     __v: 0,
     create_date: "2018-04-27T05:49:16.063Z",
     describe: null,
@@ -120,7 +120,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2ba4f06ebe130282a396a",
+    _id: ObjectId("5ae2ba4f06ebe130282a396a"),
     __v: 0,
     create_date: "2018-04-27T05:51:11.006Z",
     describe: null,
@@ -133,7 +133,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2ba5a06ebe130282a396b",
+    _id: ObjectId("5ae2ba5a06ebe130282a396b"),
     __v: 0,
     create_date: "2018-04-27T05:51:22.059Z",
     describe: null,
@@ -146,7 +146,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2ba6d06ebe130282a396d",
+    _id: ObjectId("5ae2ba6d06ebe130282a396d"),
     __v: 0,
     create_date: "2018-04-27T05:51:41.524Z",
     describe: null,
@@ -160,7 +160,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2baff06ebe130282a3972",
+    _id: ObjectId("5ae2baff06ebe130282a3972"),
     __v: 0,
     create_date: "2018-04-27T05:54:07.280Z",
     describe: null,
@@ -173,7 +173,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2bb1e06ebe130282a3974",
+    _id: ObjectId("5ae2bb1e06ebe130282a3974"),
     __v: 0,
     create_date: "2018-04-27T05:54:38.858Z",
     describe: null,
@@ -186,7 +186,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2bb2706ebe130282a3975",
+    _id: ObjectId("5ae2bb2706ebe130282a3975"),
     __v: 0,
     create_date: "2018-04-27T05:54:47.486Z",
     describe: null,
@@ -199,7 +199,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5ae2bb3806ebe130282a3977",
+    _id: ObjectId("5ae2bb3806ebe130282a3977"),
     __v: 0,
     create_date: "2018-04-27T05:55:04.553Z",
     describe: null,
@@ -212,7 +212,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5d25b469ae572c2fe9fdce18",
+    _id: ObjectId("5d25b469ae572c2fe9fdce18"),
     __v: 0,
     create_date: "2019-08-02T08:17:10.029Z",
     describe: "",
@@ -223,7 +223,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5d26e76d1d09cb6996fc81ce",
+    _id: ObjectId("5d26e76d1d09cb6996fc81ce"),
     __v: 0,
     create_date: "2019-08-02T08:17:10.029Z",
     describe: "",
@@ -234,7 +234,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5d43f034a1931579ad3b5a59",
+    _id: ObjectId("5d43f034a1931579ad3b5a59"),
     name: "导入按钮",
     uri: "auth.module.import",
     describe: "",
@@ -245,7 +245,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5def9bca4ed70ff72379d987",
+    _id: ObjectId("5def9bca4ed70ff72379d987"),
     name: "权限表",
     uri: "auth.user.authorization",
     describe: "",
@@ -255,7 +255,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5def9bca4ed70ff72379d988",
+    _id: ObjectId("5def9bca4ed70ff72379d988"),
     name: "用户表",
     uri: "auth.group.getUser",
     describe: "",
@@ -265,7 +265,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5def9bca4ed70ff72379d989",
+    _id: ObjectId("5def9bca4ed70ff72379d989"),
     name: "权限查询",
     uri: "auth.auth.assign",
     describe: "",
@@ -275,7 +275,7 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: "5def9d554ed70ff72379d98b",
+    _id: ObjectId("5def9d554ed70ff72379d98b"),
     name: "查询权限用户",
     uri: "auth.authorization.users,auth.user.getUserById",
     describe: "",

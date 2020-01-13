@@ -82,11 +82,11 @@ export class PassportController extends baseController {
 
   @post('/logout')
   async logout() {
-    const { ctx } = this;
-    const { user } = ctx.state
-    if (!user) {
-      return this.failure({})
-    }
+    // const { ctx } = this;
+    // const { user } = ctx.state
+    // if (!user) {
+    //   return this.failure({})
+    // }
     this.success();
   }
 
@@ -96,13 +96,13 @@ export class PassportController extends baseController {
   @get('/auth')
   async auth() {
     const { ctx, service } = this;
-    if (!ctx.isAuthenticated()) {
-      this.failure({
-        data: ctx.user,
-        state: 401,
-      });
-      return false;
-    }
+    // if (!ctx.isAuthenticated()) {
+    //   this.failure({
+    //     data: ctx.user,
+    //     state: 401,
+    //   });
+    //   return false;
+    // }
     const result = await service.auth(ctx.user.id);
     return this.success(result);
   }

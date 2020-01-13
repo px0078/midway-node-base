@@ -41,15 +41,15 @@ export class UserController extends baseController {
   @get('/info')
   async userInfo() {
     const { ctx } = this;
-    if (!ctx.isAuthenticated()) {
-      this.failure({
-        code: '401',
-        msg: ctx.helper.errorCode['401'],
-        data: ctx.user,
-        state: 401,
-      });
-      return;
-    }
+    // if (!ctx.isAuthenticated()) {
+    //   this.failure({
+    //     code: '401',
+    //     msg: ctx.helper.errorCode['401'],
+    //     data: ctx.user,
+    //     state: 401,
+    //   });
+    //   return;
+    // }
     const result = (
       await ctx.model.AuthUser.findOne(
         {
