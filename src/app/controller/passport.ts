@@ -3,6 +3,7 @@ import baseController from "../core/baseController";
 import { IService } from '@/interface/authUserService';
 import { pick } from 'underscore';
 import { Jwt } from '@waiting/egg-jwt'
+import { union} from 'lodash'
 
 const crypto = require('crypto'); // build-in
 
@@ -88,6 +89,30 @@ export class PassportController extends baseController {
     //   return this.failure({})
     // }
     this.success();
+  }
+
+   
+  // 获取自己的module
+  @get('/module')
+  async getModule() {
+    const { ctx } = this;
+    const { state } = ctx;
+    let userGroupData = await ctx.model.AuthGroup.find(
+      {
+        users: state.user.id,
+      },
+      {
+        modules: 1,
+      },
+    );
+
+    userGroupData = userGroupData.map((item: any) => item.toJSON().modules);
+
+    const userAuthModule: any[] = await ctx.model.AuthModule.find({
+      _id: { $in: union(...userGroupData) }
+    });
+
+    this.success(userAuthModule)
   }
 
 

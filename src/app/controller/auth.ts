@@ -43,7 +43,8 @@ export class AuthController extends baseController {
         }
       });
     });
-
     this.success(assign);
   }
+
+
 }
