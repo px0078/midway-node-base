@@ -105,7 +105,7 @@ export class AuthUserService implements IService {
     const { ctx } = this;
       let userGroupData = await ctx.model.AuthGroup.find(
         {
-          users: id,
+          users: {$in: [id]},
         },
         {
           modules: 1,
@@ -114,7 +114,7 @@ export class AuthUserService implements IService {
       userGroupData = userGroupData.map((item: any) => item.toJSON().modules);
       const ids = union(...userGroupData)
       const result = await ctx.model.AuthModule.find({
-        $query: (obj: any) => ids.includes(obj._id)
+        _id: {$in: ids}
       });
 
       return result;

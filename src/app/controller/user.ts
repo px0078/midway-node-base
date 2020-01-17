@@ -41,15 +41,6 @@ export class UserController extends baseController {
   @get('/info')
   async userInfo() {
     const { ctx } = this;
-    // if (!ctx.isAuthenticated()) {
-    //   this.failure({
-    //     code: '401',
-    //     msg: ctx.helper.errorCode['401'],
-    //     data: ctx.user,
-    //     state: 401,
-    //   });
-    //   return;
-    // }
     const result = (
       await ctx.model.AuthUser.findOne(
         {
@@ -74,7 +65,7 @@ export class UserController extends baseController {
     });
   }
 
-  @get('/users')
+  @post('/users')
   async getUserById() {
     const { ctx, service } = this;
     let { searchType = 1, searchKey = '' } = ctx.request.body;
@@ -241,7 +232,7 @@ export class UserController extends baseController {
         required: false,
       },
       status: {
-        type: 'string',
+        type: 'number',
         required: false,
       },
       mobile: {
