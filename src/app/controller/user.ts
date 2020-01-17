@@ -191,7 +191,6 @@ export class UserController extends baseController {
 
   @get(
     '/:id',
-    { routerName: 'admin.user.detail', middleware: ['authMiddleware']}
   )
   async detail() {
     const { ctx, service } = this;
