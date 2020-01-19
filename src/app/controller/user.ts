@@ -14,6 +14,9 @@ export class UserController extends baseController {
   @inject('AuthUserService')
   service: IService
 
+  /**
+   * 获取用户列表（分页
+   */
   @get('/')
   async list() {
     const { ctx, service } = this;
@@ -38,13 +41,17 @@ export class UserController extends baseController {
     });
   }
 
+  /**
+   * 获取个人信息
+   */
   @get('/info')
   async userInfo() {
     const { ctx } = this;
+    const user = ctx.state.user
     const result = (
       await ctx.model.AuthUser.findOne(
         {
-          _id: ctx.user.id,
+          _id: user.id,
         },
         {
           account: 1,
@@ -60,11 +67,14 @@ export class UserController extends baseController {
 
     this.success({
       ...result,
-      id: ctx.user.id,
-      roles: ctx.user.roles,
+      id: user.id,
+      roles: user.roles,
     });
   }
 
+  /**
+   * 通过ID数组获取用户，可筛选，不传ID数组取全部用户
+   */
   @post('/users')
   async getUserById() {
     const { ctx, service } = this;
@@ -88,6 +98,9 @@ export class UserController extends baseController {
     });
   }
 
+  /**
+   * 通过ID获取用户的权限（菜单
+   */
   @get('/:id/auth')
   async authorization() {
     const { ctx, service } = this;
@@ -98,6 +111,9 @@ export class UserController extends baseController {
   }
 
 
+  /**
+   * 创建用户
+   */
   @post('/')
   async create() {
     const { ctx, service } = this;
@@ -159,6 +175,9 @@ export class UserController extends baseController {
     }
   }
 
+  /**
+   * 删除用户
+   */
   @del('/:id')
   async destroy() {
     const { ctx, service } = this;
@@ -180,6 +199,9 @@ export class UserController extends baseController {
     return this.success();
   }
 
+  /**
+   * 通过ID获取用户信息
+   */
   @get(
     '/:id',
   )
@@ -216,6 +238,9 @@ export class UserController extends baseController {
     this.success(result)
   }
 
+  /**
+   * 通过ID更新用户信息
+   */
   @put('/:id')
   async update() {
     const { ctx, service } = this;
@@ -270,6 +295,9 @@ export class UserController extends baseController {
   }
 
   
+  /**
+   * 通过ID更新用户密码
+   */
   @put('/:id/password')
   async setPassword() {
     const { ctx, service } = this;

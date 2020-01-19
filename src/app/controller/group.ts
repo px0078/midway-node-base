@@ -17,6 +17,9 @@ export class authGroupController extends baseController {
   @inject('AuthGroupService')
   service: IService
 
+  /**
+   * 所有角色列表，分页
+   */
   @get('/')
   async index() {
     const { query } = this.ctx.request;
@@ -39,7 +42,9 @@ export class authGroupController extends baseController {
     }
   }
 
-
+  /**
+   * 创建角色
+   */
   @post('/')
   async create() {
     const query = this.ctx.request.body;
@@ -98,6 +103,9 @@ export class authGroupController extends baseController {
     }
   }
 
+  /**
+   * 通过ID删除角色
+   */
   @del('/:id')
   async destroy() {
     const { id } = this.ctx.params;
@@ -107,7 +115,9 @@ export class authGroupController extends baseController {
     this.success();
   }
 
-  
+  /**
+   * 通过ID获取角色信息
+   */
   @get('/:id')
   async detail() {
     const query = this.ctx.params;
@@ -126,7 +136,10 @@ export class authGroupController extends baseController {
     return this.success(result);
   }
 
-  
+
+  /**
+   * 通过ID修改角色信息
+   */
   @put('/:id')
   async update() {
     const { id } = this.ctx.params;
@@ -173,7 +186,7 @@ export class authGroupController extends baseController {
 
   
   /* 
-  * 根据 groupId 获取 group 下的用户列表（分页）
+  * 通过ID 获取角色下的用户列表（分页）
   */
   @get('/user/:id')
   async getUser() {
@@ -215,7 +228,7 @@ export class authGroupController extends baseController {
   }
 
   /*
-  * 根据 groupId 增加/删除，替换 group 内的用户
+  * 通过ID 增加/删除，替换 角色内的用户
   */
   @put('/user/:id')
   async setUser() {
@@ -256,7 +269,9 @@ export class authGroupController extends baseController {
     return this.success();
   }
 
-  // 根据 groupId 获取 角色的权限（modules）
+  /**
+   * 通过ID获取角色的权限（module
+   */
   @get('/module/:id')
   async getModule() {
     const { ctx } = this;
@@ -274,7 +289,9 @@ export class authGroupController extends baseController {
     });
   }
 
-  // 根据 groupId 修改 角色的权限（modules）
+  /**
+   * 根据 ID 修改 角色的权限（modules）
+   */
   @put('/module/:id')
   async setModule() {
     const { ctx } = this;

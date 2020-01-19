@@ -13,8 +13,8 @@ export class authModuleController extends baseController {
   @inject('AuthModuleService')
   service: IService
   
-  /*
-  * 获取所有的 module
+  /**
+  * 获取所有的权限 module
   */
   @get('/')
   async list() {
@@ -26,6 +26,9 @@ export class authModuleController extends baseController {
     })
   }
 
+  /**
+   * 新建权限（菜单
+   */
   @post('/')
   async create() {
     const query = this.ctx.request.body;
@@ -90,6 +93,9 @@ export class authModuleController extends baseController {
 
   }
 
+  /**
+   * 删除权限（菜单
+   */
   @del('/:id')
   async destroy() {
     const {id, uri} = this.ctx.params;
@@ -118,6 +124,9 @@ export class authModuleController extends baseController {
   }
 
 
+  /**
+   * 通过ID获取权限（菜单
+   */
   @get('/:id')
   async detail() {
     const { id } = this.ctx.params;
@@ -135,6 +144,9 @@ export class authModuleController extends baseController {
     ));
   }
 
+  /**
+   * 通过ID修改权限（菜单
+   */
   @put('/:id')
   async update() {
     const { ctx, service } = this;

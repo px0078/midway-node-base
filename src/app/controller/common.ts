@@ -14,6 +14,10 @@ export class CommonController extends baseController {
   @inject('CommonService')
   service: IService;
 
+  /**
+  * 导出excel
+   * 
+  */
   @post('/excel')
   async exportExcel() {
     const { ctx, service } = this;
@@ -65,7 +69,9 @@ export class CommonController extends baseController {
     bucket: string,
     domain: string,
   };
-
+   /**
+   * 获取七牛云 token
+   */
   @get('/qiniuToken')
   getQiniuToken() {
     const { accessKey, secretKey, bucket, domain } = this.qiniuConfig;

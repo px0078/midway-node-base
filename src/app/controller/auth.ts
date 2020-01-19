@@ -14,6 +14,9 @@ export class AuthController extends baseController {
   @inject()
   ctx: Context;
 
+  /**
+  * 权限分配，返回每个权限module对应的角色和用户数量
+  */
   @get('/')
   async assign() {
     const { ctx } = this;

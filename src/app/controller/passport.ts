@@ -3,7 +3,6 @@ import baseController from "../core/baseController";
 import { IService } from '@/interface/authUserService';
 import { pick } from 'underscore';
 import { Jwt } from '@waiting/egg-jwt'
-import { union} from 'lodash'
 
 const crypto = require('crypto'); // build-in
 
@@ -20,7 +19,9 @@ export class PassportController extends baseController {
   @config('jwt')
   jwtConfig: any;
 
-  
+  /**
+   * 登录
+   */
   @post('/login')
   async login() {
     const { ctx, jwtConfig, jwt } = this;
@@ -81,6 +82,9 @@ export class PassportController extends baseController {
     }
   }
 
+  /**
+   * 登出
+   */
   @post('/logout')
   async logout() {
     // const { ctx } = this;
@@ -91,47 +95,22 @@ export class PassportController extends baseController {
     this.success();
   }
 
-   
-  // 获取自己的module
-  @get('/module')
-  async getModule() {
-    const { ctx } = this;
-    const { state } = ctx;
-    let userGroupData = await ctx.model.AuthGroup.find(
-      {
-        users: state.user.id,
-      },
-      {
-        modules: 1,
-      },
-    );
-
-    userGroupData = userGroupData.map((item: any) => item.toJSON().modules);
-
-    const userAuthModule: any[] = await ctx.model.AuthModule.find({
-      _id: { $in: union(...userGroupData) }
-    });
-
-    this.success(userAuthModule)
-  }
-
-
   @inject('AuthUserService')
   service: IService;
+  /**
+   * 获取我的权限（菜单
+   */
+  @get('/module')
   @get('/auth')
   async auth() {
     const { ctx, service } = this;
-    // if (!ctx.isAuthenticated()) {
-    //   this.failure({
-    //     data: ctx.user,
-    //     state: 401,
-    //   });
-    //   return false;
-    // }
-    const result = await service.auth(ctx.user.id);
+    const result = await service.auth(ctx.state.user.id);
     return this.success(result);
   }
 
+  /**
+   * 通过ID更新我的信息
+   */
   @put(
     '/:id', 
     // { routerName: 'admin.passport.update', middleware: ['authMiddleware']}
