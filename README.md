@@ -1,4 +1,4 @@
-# demo-py_edu
+# demo-edu
 
 this is a simple template for midway examples.
 you can push it to midway-examples after created or find bugs.

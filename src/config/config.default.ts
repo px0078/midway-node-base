@@ -13,7 +13,7 @@ export default (appInfo: any) => {
   config.mongoose = {
     clients: {
       back: {
-        url: 'mongodb://127.0.0.1:27017/pyedu',
+        url: 'mongodb://127.0.0.1:27017/edu',
         options: {
           useUnifiedTopology: true,
           useFindAndModify: false,
@@ -34,7 +34,7 @@ export default (appInfo: any) => {
   config.jwt = {
     enable: true, // enable middleware
     client: {
-      secret: 'py_edu-0078',
+      secret: '~!@#_edu+6379-8080*27017/0.',
     },
     ignore: ['/admin/passport/login'],
   }

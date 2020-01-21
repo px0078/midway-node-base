@@ -5,7 +5,7 @@ module.exports = (pandora) => {
   pandora
 
     // 定义一个进程，名字叫 processA
-    .process('py_edu')
+    .process('edu')
 	
     // 如果 scale 大于 1 ，将使用 Node.js 的 Cluster 模块自动产生进程组
     // 默认值即是 1

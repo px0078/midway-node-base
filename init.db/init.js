@@ -212,17 +212,6 @@ db.authmodules.insert([
   },
   {
     sort: 0,
-    _id: ObjectId("5d25b469ae572c2fe9fdce18"),
-    __v: 0,
-    create_date: "2019-08-02T08:17:10.029Z",
-    describe: "",
-    name: "导出按钮",
-    parent_id: "5ae2baff06ebe130282a3972",
-    update_date: "2019-11-25T10:12:49.141Z",
-    uri: "auth.module.export"
-  },
-  {
-    sort: 0,
     _id: ObjectId("5d26e76d1d09cb6996fc81ce"),
     __v: 0,
     create_date: "2019-08-02T08:17:10.029Z",
@@ -231,17 +220,6 @@ db.authmodules.insert([
     parent_id: "5ae2a084dfa9080ec4bf4a6d",
     update_date: "2019-11-25T10:12:49.142Z",
     uri: "sys.common.getOSSToken"
-  },
-  {
-    sort: 0,
-    _id: ObjectId("5d43f034a1931579ad3b5a59"),
-    name: "导入按钮",
-    uri: "auth.module.import",
-    describe: "",
-    parent_id: "5ae2baff06ebe130282a3972",
-    create_date: "2019-08-02T08:11:32.185Z",
-    update_date: "2019-08-02T08:11:32.185Z",
-    __v: 0
   },
   {
     sort: 0,
