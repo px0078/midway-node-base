@@ -18,7 +18,7 @@ export class CommonController extends baseController {
   * 导出excel
    * 
   */
-  @post('/excel')
+  @post('/excel', { routerName: 'common.exportExcel', middleware: ['authMiddleware']})
   async exportExcel() {
     const { ctx, service } = this;
     const query = ctx.request.body;
@@ -72,7 +72,7 @@ export class CommonController extends baseController {
    /**
    * 获取七牛云 token
    */
-  @get('/qiniuToken')
+  @get('/qiniuToken',  { routerName: 'common.getQiniuToken', middleware: ['authMiddleware']} )
   getQiniuToken() {
     const { accessKey, secretKey, bucket, domain } = this.qiniuConfig;
     const mac = new Qiniu.auth.digest.Mac(accessKey, secretKey);

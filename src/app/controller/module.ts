@@ -16,7 +16,7 @@ export class authModuleController extends baseController {
   /**
   * 获取所有的权限 module
   */
-  @get('/')
+  @get('/', { routerName: 'module.list', middleware: ['authMiddleware']})
   async list() {
     
     const result = await this.service.list();
@@ -29,7 +29,7 @@ export class authModuleController extends baseController {
   /**
    * 新建权限（菜单
    */
-  @post('/')
+  @post('/', { routerName: 'module.create', middleware: ['authMiddleware']})
   async create() {
     const query = this.ctx.request.body;
 
@@ -96,7 +96,7 @@ export class authModuleController extends baseController {
   /**
    * 删除权限（菜单
    */
-  @del('/:id')
+  @del('/:id', { routerName: 'module.destroy', middleware: ['authMiddleware']} )
   async destroy() {
     const {id, uri} = this.ctx.params;
   
@@ -127,7 +127,7 @@ export class authModuleController extends baseController {
   /**
    * 通过ID获取权限（菜单
    */
-  @get('/:id')
+  @get('/:id', { routerName: 'module.detail', middleware: ['authMiddleware']} )
   async detail() {
     const { id } = this.ctx.params;
 
@@ -147,7 +147,7 @@ export class authModuleController extends baseController {
   /**
    * 通过ID修改权限（菜单
    */
-  @put('/:id')
+  @put('/:id', { routerName: 'module.update', middleware: ['authMiddleware']})
   async update() {
     const { ctx, service } = this;
     const id = ctx.params.id;

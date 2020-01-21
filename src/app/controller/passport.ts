@@ -1,7 +1,6 @@
-import { Context, controller, inject, provide, post, get, put, plugin, config } from 'midway';
+import { Context, controller, inject, provide, post, get, plugin, config } from 'midway';
 import baseController from "../core/baseController";
 import { IService } from '@/interface/authUserService';
-import { pick } from 'underscore';
 import { Jwt } from '@waiting/egg-jwt'
 
 const crypto = require('crypto'); // build-in
@@ -111,61 +110,61 @@ export class PassportController extends baseController {
   /**
    * 通过ID更新我的信息
    */
-  @put(
-    '/:id', 
-    // { routerName: 'admin.passport.update', middleware: ['authMiddleware']}
-  )
-  async update() {
-    const { ctx, service } = this;
-    const { id } = ctx.params;
-    const query = ctx.request.body;
+  // @put(
+  //   '/:id', 
+  //   { routerName: 'passport.update', middleware: ['authMiddleware']}
+  // )
+  // async update() {
+  //   const { ctx, service } = this;
+  //   const { id } = ctx.params;
+  //   const query = ctx.request.body;
 
-    const createRule = {
-      gender: {
-        type: 'string',
-        required: false,
-      },
-      name: {
-        type: 'string',
-        required: false,
-      },
-      avatar: {
-        type: 'string',
-        required: false,
-      },
-      mobile: {
-        type: 'string',
-        required: false,
-        allowEmpty: true,
-      },
-      email: {
-        type: 'email',
-        required: false,
-        allowEmpty: true,
-      },
-    };
+  //   const createRule = {
+  //     gender: {
+  //       type: 'string',
+  //       required: false,
+  //     },
+  //     name: {
+  //       type: 'string',
+  //       required: false,
+  //     },
+  //     avatar: {
+  //       type: 'string',
+  //       required: false,
+  //     },
+  //     mobile: {
+  //       type: 'string',
+  //       required: false,
+  //       allowEmpty: true,
+  //     },
+  //     email: {
+  //       type: 'email',
+  //       required: false,
+  //       allowEmpty: true,
+  //     },
+  //   };
 
-    try {
-      ctx.validate(createRule);
-    } catch (err) {
-      this.validateError(err);
-      return;
-    }
-    const result = await service.update(
-      id,
-      pick(query, ...Object.keys(createRule)),
-    );
-    if (!result) {
-      this.failure({
-        data: {
-          id,
-        },
-        state: 404,
-      });
-      return;
-    }
-    this.success();
-  }
+  //   try {
+  //     ctx.validate(createRule);
+  //   } catch (err) {
+  //     this.validateError(err);
+  //     return;
+  //   }
+  //   const result = await service.update(
+  //     id,
+  //     pick(query, ...Object.keys(createRule)),
+  //   );
+  //   if (!result) {
+  //     this.failure({
+  //       data: {
+  //         id,
+  //       },
+  //       state: 404,
+  //     });
+  //     return;
+  //   }
+  //   this.success();
+  // }
  
 
 }

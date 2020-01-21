@@ -17,7 +17,7 @@ export class AuthController extends baseController {
   /**
   * 权限分配，返回每个权限module对应的角色和用户数量
   */
-  @get('/')
+  @get('/', { routerName: 'auth.assign', middleware: ['authMiddleware'] })
   async assign() {
     const { ctx } = this;
     const userIds = (await ctx.model.AuthUser.find()).map((u: IAuthUser) => u._id);

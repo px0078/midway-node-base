@@ -20,7 +20,7 @@ export class authGroupController extends baseController {
   /**
    * 所有角色列表，分页
    */
-  @get('/')
+  @get('/', { routerName: 'group.index', middleware: ['authMiddleware'] })
   async index() {
     const { query } = this.ctx.request;
     const { pageNumber = 1, pageSize = 10 } = query
@@ -45,7 +45,7 @@ export class authGroupController extends baseController {
   /**
    * 创建角色
    */
-  @post('/')
+  @post('/', { routerName: 'group.create', middleware: ['authMiddleware'] })
   async create() {
     const query = this.ctx.request.body;
     const createRule = {
@@ -106,7 +106,7 @@ export class authGroupController extends baseController {
   /**
    * 通过ID删除角色
    */
-  @del('/:id')
+  @del('/:id', { routerName: 'group.destroy', middleware: ['authMiddleware'] })
   async destroy() {
     const { id } = this.ctx.params;
     if (!id) return this.failure({})
@@ -118,7 +118,7 @@ export class authGroupController extends baseController {
   /**
    * 通过ID获取角色信息
    */
-  @get('/:id')
+  @get('/:id', { routerName: 'group.detail', middleware: ['authMiddleware'] })
   async detail() {
     const query = this.ctx.params;
 
@@ -140,7 +140,7 @@ export class authGroupController extends baseController {
   /**
    * 通过ID修改角色信息
    */
-  @put('/:id')
+  @put('/:id', { routerName: 'group.update', middleware: ['authMiddleware'] })
   async update() {
     const { id } = this.ctx.params;
     const query = this.ctx.request.body;
@@ -188,7 +188,7 @@ export class authGroupController extends baseController {
   /* 
   * 通过ID 获取角色下的用户列表（分页）
   */
-  @get('/user/:id')
+  @get('/user/:id', { routerName: 'group.getUser', middleware: ['authMiddleware'] })
   async getUser() {
     const { ctx } = this;
     const query = ctx.params;
@@ -230,7 +230,7 @@ export class authGroupController extends baseController {
   /*
   * 通过ID 增加/删除，替换 角色内的用户
   */
-  @put('/user/:id')
+  @put('/user/:id', { routerName: 'group.setUser', middleware: ['authMiddleware'] })
   async setUser() {
     const { ctx } = this;
     const roleId = ctx.params.id;
@@ -272,7 +272,7 @@ export class authGroupController extends baseController {
   /**
    * 通过ID获取角色的权限（module
    */
-  @get('/module/:id')
+  @get('/module/:id', { routerName: 'group.getModule', middleware: ['authMiddleware'] })
   async getModule() {
     const { ctx } = this;
     const { id } = ctx.params;
@@ -292,7 +292,7 @@ export class authGroupController extends baseController {
   /**
    * 根据 ID 修改 角色的权限（modules）
    */
-  @put('/module/:id')
+  @put('/module/:id', { routerName: 'group.setModule', middleware: ['authMiddleware'] })
   async setModule() {
     const { ctx } = this;
     const roleId = ctx.params.id;

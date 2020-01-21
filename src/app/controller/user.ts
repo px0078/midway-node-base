@@ -17,7 +17,7 @@ export class UserController extends baseController {
   /**
    * 获取用户列表（分页
    */
-  @get('/')
+  @get('/', { routerName: 'user.list', middleware: ['authMiddleware'] })
   async list() {
     const { ctx, service } = this;
     const { query } = ctx.request;
@@ -75,7 +75,7 @@ export class UserController extends baseController {
   /**
    * 通过ID数组获取用户，可筛选，不传ID数组取全部用户
    */
-  @post('/users')
+  @post('/users', { routerName: 'user.getUserById', middleware: ['authMiddleware'] })
   async getUserById() {
     const { ctx, service } = this;
     let { searchType = 1, searchKey = '' } = ctx.request.body;
@@ -101,7 +101,7 @@ export class UserController extends baseController {
   /**
    * 通过ID获取用户的权限（菜单
    */
-  @get('/:id/auth')
+  @get('/:id/auth', { routerName: 'user.authorization', middleware: ['authMiddleware'] })
   async authorization() {
     const { ctx, service } = this;
     const { id } = ctx.params;
@@ -114,7 +114,7 @@ export class UserController extends baseController {
   /**
    * 创建用户
    */
-  @post('/')
+  @post('/', { routerName: 'user.create', middleware: ['authMiddleware'] })
   async create() {
     const { ctx, service } = this;
     const query = ctx.request.body;
@@ -178,7 +178,7 @@ export class UserController extends baseController {
   /**
    * 删除用户
    */
-  @del('/:id')
+  @del('/:id', { routerName: 'user.destroy', middleware: ['authMiddleware'] })
   async destroy() {
     const { ctx, service } = this;
     const { id } = ctx.params;
@@ -202,9 +202,7 @@ export class UserController extends baseController {
   /**
    * 通过ID获取用户信息
    */
-  @get(
-    '/:id',
-  )
+  @get('/:id', { routerName: 'user.detail', middleware: ['authMiddleware'] } )
   async detail() {
     const { ctx, service } = this;
     const { id } = ctx.params;
@@ -241,10 +239,11 @@ export class UserController extends baseController {
   /**
    * 通过ID更新用户信息
    */
-  @put('/:id')
+  @put('/:id', { routerName: 'user.update', middleware: ['authMiddleware'] })
+  @post('/info')
   async update() {
     const { ctx, service } = this;
-    const { id } = ctx.params;
+    const id = ctx.params.id || ctx.state.user.id
     const query = ctx.request.body;
 
     const createRule = {
@@ -298,10 +297,11 @@ export class UserController extends baseController {
   /**
    * 通过ID更新用户密码
    */
-  @put('/:id/password')
+  @put('/:id/password', { routerName: 'user.setPassword', middleware: ['authMiddleware'] })
+  @post('/password')
   async setPassword() {
     const { ctx, service } = this;
-    const { id } = ctx.params;
+    const id = ctx.params.id || ctx.state.user.id
     const query = ctx.request.body;
 
     const createRule = {
